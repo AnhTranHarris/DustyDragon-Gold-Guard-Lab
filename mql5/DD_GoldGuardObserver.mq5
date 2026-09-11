@@ -1,5 +1,5 @@
 #property strict
-#property version   "0.11"
+#property version   "0.110"
 #property description "Passive telemetry observer for Gold Hunter V8. Research-only; never sends trade requests."
 
 input string InpSymbolContains = "XAUUSD";

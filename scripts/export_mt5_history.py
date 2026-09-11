@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -25,6 +25,15 @@ def main() -> int:
 
     date_from = datetime.fromisoformat(args.date_from)
     date_to = datetime.fromisoformat(args.date_to)
+    if date_from.tzinfo is None:
+        date_from = date_from.replace(tzinfo=timezone.utc)
+    else:
+        date_from = date_from.astimezone(timezone.utc)
+    if date_to.tzinfo is None:
+        date_to = date_to.replace(tzinfo=timezone.utc)
+    else:
+        date_to = date_to.astimezone(timezone.utc)
+
     if not mt5.initialize():
         raise SystemExit(f"mt5.initialize() failed: {mt5.last_error()}")
     try:
@@ -46,7 +55,7 @@ def main() -> int:
                 d = deal._asdict()
                 if int(d.get("magic", 0)) != args.magic:
                     continue
-                d["time"] = datetime.fromtimestamp(d["time"]).isoformat()
+                d["time"] = datetime.fromtimestamp(d["time"], tz=timezone.utc).isoformat()
                 w.writerow({k: d.get(k, "") for k in fields})
                 count += 1
         print(f"Exported {count} deals to {out}")

@@ -1,0 +1,17 @@
+{
+  "min_trades_for_expectancy": 20,
+  "red_profit_factor": 0.8,
+  "amber_profit_factor": 1.1,
+  "red_win_rate": 0.4,
+  "amber_win_rate": 0.5,
+  "red_loss_streak": 10,
+  "amber_loss_streak": 6,
+  "max_spread_points_green": 60.0,
+  "max_spread_points_amber": 100.0,
+  "min_directional_efficiency_green": 0.3,
+  "min_directional_efficiency_amber": 0.15,
+  "high_impact_window_minutes": 30.0,
+  "friday_lock_hour_server": 20,
+  "monday_reopen_guard_minutes": 90,
+  "session_close_guard_minutes": 45
+}

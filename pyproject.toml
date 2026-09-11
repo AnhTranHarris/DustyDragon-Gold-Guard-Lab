@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dusty-dragon-gold-guard"
+version = "0.1.0"
+description = "Research harness for Gold Hunter V8 regime supervision"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+mt5 = ["MetaTrader5>=5.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.ex5
+*.set
+*.xlsx
+*.html
+*.htm
+data/*.csv
+!data/README.md
+observer.csv
